@@ -10,6 +10,9 @@ import java.io.IOException;
 
 public class Blur {
    static int[][] kernel = {{-1, -1, -1}, {-1 ,8 ,-1}, {-1, -1, -1}};
+   private int[][] gaussian = {{1, 2, 1}, {2, 4, 2}, {1, 2, 1}};
+   private int[][] edgeDetect={{-1, -1, -1}, {-1, 8, -1}, {-1, -1, -1}};
+   private int[][] mean= {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
 
    public static int kernelCount(int[][] kernel){
        int total = 0;
