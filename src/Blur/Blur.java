@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Blur {
-   static int[][] kernel = {{1, 2, 1}, {2 ,4 ,2}, {1, 2, 1}};
+   static int[][] kernel = {{-1, -1, -1}, {-1 ,8 ,-1}, {-1, -1, -1}};
 
    public static int kernelCount(int[][] kernel){
        int total = 0;
@@ -29,7 +29,7 @@ public class Blur {
 
         BufferedImage img = null;
         try{
-            img = ImageIO.read(new File("dogtest.jpg"));
+            img = ImageIO.read(new File("imagetest.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
