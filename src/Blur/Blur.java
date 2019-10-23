@@ -1,6 +1,8 @@
 package Blur;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,6 +24,24 @@ public class Blur {
        else{
            return total;
        }
+   }
+
+   public BufferedImage loadImage(){
+       BufferedImage img = null;
+       JFileChooser chooser = new JFileChooser();
+       chooser.setDialogTitle("Choose an image...");
+       FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "gif", "png");
+       chooser.addChoosableFileFilter(filter);
+       if(chooser.showOpenDialog((null))==JFileChooser.APPROVE_OPTION){
+           File file = chooser.getSelectedFile();
+           try {
+               img = ImageIO.read(file);
+           } catch(IOException e){
+               e.printStackTrace();
+           }
+       }
+       return img;
+
    }
 
 
